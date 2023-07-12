@@ -28,8 +28,8 @@
         </center>
       </div>
       <div class="social-links">
-        <a href="https://www.facebook.com/rakhib420" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=8801797951359&text=Hello,%20I'm%20interested%20on%20your%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100089811214546&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=8801312701392&text=Hello,%20I'm%20interested%20on%20your%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
       <center>
         <p>Last Update: 13 Jul 2023 12:02 AM</p>
@@ -61,7 +61,7 @@
         "189230", // habib vai
         "153086", // rabbi
         "165078",
-        "184619", // prosen jeet
+        "1883857", // prosen jeet
       ]; // Add your desired keywords here
 
       function shortenUrl(event) {
@@ -74,6 +74,13 @@
         var errorMessage = document.getElementById('errorMessage');
 
         var longUrl = longUrlInput.value;
+
+        var containsKeyword = allowedKeywords.some(keyword => longUrl.includes(keyword));
+
+        if (!containsKeyword) {
+          showError('Your CPA profile is not registered');
+          return;
+        }
 
         var apiUrl = 'https://kingurl.x10.bz/api.php?url=' + encodeURIComponent(longUrl);
 
