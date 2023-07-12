@@ -75,12 +75,7 @@
 
         var longUrl = longUrlInput.value;
 
-        var containsKeyword = allowedKeywords.some(keyword => longUrl.includes(keyword));
-
-        if (!containsKeyword) {
-          showError('Your CPA profile is not registered');
-          return;
-        }
+       
 
         var apiUrl = 'https://kingurl.x10.bz/api.php?url=' + encodeURIComponent(longUrl);
 
