@@ -58,7 +58,7 @@
           .then(data => {
             if (data.shorturl) {
               var currentDomain = window.location.protocol + '//' + window.location.hostname + '/';
-      var currentDomain2 = 'https://go-ten-wheat.vercel.app/go.html?uid=';
+      var currentDomain2 = 'https://go-ten-wheat.vercel.app/';
       var timestamp = Date.now(); // Get the current timestamp
       var params = timestamp.toString(); // Convert the timestamp to a string
       var modifyedUrl = data.shorturl.replace('https://kingurl.x10.bz', currentDomain2);
