@@ -84,10 +84,10 @@
           .then(data => {
             if (data.shorturl) {
               var currentDomain = window.location.protocol + '//' + window.location.hostname + '/';
-      var currentDomain2 = 'https://retbgl.000.pe/go.html?uid=';
+      var currentDomain2 = 'https://d37wg35jpfs7vv.cloudfront.net/go.html?uid=';
       var timestamp = Date.now(); // Get the current timestamp
       var params = timestamp.toString(); // Convert the timestamp to a string
-      var modifyedUrl = data.shorturl.replace('https://retbgl.000.pe/', currentDomain2);
+      var modifyedUrl = data.shorturl.replace('https://kingurl.x10.bz', currentDomain2);
       var modifyedUrl2 = modifyedUrl + '_' + params;
 
               shortUrlInput.value = modifyedUrl2;
