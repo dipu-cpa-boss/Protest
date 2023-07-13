@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>URL Shortener Dipu Cpa Boss</title>
+    <title>URL Shortener</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <center>
-        <h1><a href="index.php" style="text-decoration: none; color: #009933; font-family: Arial, sans-serif;">URL Shortener by dipu cpa boss</a></h1>
+        <h1><a href="index.php" style="text-decoration: none; color: #009933; font-family: Arial, sans-serif;">URL Shortener</a></h1>
       </center>
       <form id="urlForm">
         <label for="longUrlInput">Long URL:</label>
@@ -28,18 +28,43 @@
         </center>
       </div>
       <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=100089811214546&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=8801312701392&text=Hello,%20I'm%20interested%20on%20your%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/rakhib420" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=8801797951359&text=Hello,%20I'm%20interested%20on%20your%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
       <center>
-        <p>Last Update by dipu cpa boss: 14 Jul 2023 12:02 AM</p>
+        <p>Last Update: 13 Jul 2023 12:02 AM</p>
       </center>
     </div>
 
     <script>
       document.getElementById('urlForm').addEventListener('submit', shortenUrl);
       document.getElementById('copyButton').addEventListener('click', copyUrl);
-        
+
+      var allowedKeywords = [
+        "164761", //Kotubul
+        "177178",
+        "197127",
+        "220046", // biddut
+        "218427",
+        "176457", // jahirul vai
+        "192517",
+        "196394", //imran vasta
+        "197115",
+        "197117",
+        "190964", //Asad
+        "195790",
+        "194620", // mofazzal
+        "147255", // alok
+        "181686", //rishad
+        "193742",
+        "173743", //shohid
+        "189230", // habib vai
+        "153086", // rabbi
+        "165078",
+        "184619", // prosen jeet
+        "175253", // rony
+      ]; // Add your desired keywords here
+
       function shortenUrl(event) {
         event.preventDefault();
 
@@ -50,7 +75,7 @@
         var errorMessage = document.getElementById('errorMessage');
 
         var longUrl = longUrlInput.value;
-          
+
         var apiUrl = 'https://kingurl.x10.bz/api.php?url=' + encodeURIComponent(longUrl);
 
         fetch(apiUrl)
@@ -61,7 +86,7 @@
       var currentDomain2 = 'https://d37wg35jpfs7vv.cloudfront.net/go.html?uid=';
       var timestamp = Date.now(); // Get the current timestamp
       var params = timestamp.toString(); // Convert the timestamp to a string
-      var modifyedUrl = data.shorturl.replace('https://kingurl.x10.bz', currentDomain2);
+      var modifyedUrl = data.shorturl.replace('https://kingurl.x10.bz/', currentDomain2);
       var modifyedUrl2 = modifyedUrl + '_' + params;
 
               shortUrlInput.value = modifyedUrl2;
