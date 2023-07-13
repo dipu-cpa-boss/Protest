@@ -1,171 +1,132 @@
+
 <!DOCTYPE html>
-<html class="full" lang="en">
+<html>
 
-    <head>
-		<base href="https://kingurl.x10.bz/" />
-        <meta charset="utf-8">
-        <title>URL SHORTNER</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        
-        <meta name='twitter:url' content='https://kingurl.x10.bz'>
-        <meta name='twitter:title' content='URL SHORTNER'>
-        <meta property="og:title" content="URL SHORTNER">
-        <meta property="og:image" content='img/logo-light.png'>
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/animate.css" rel="stylesheet">
+  <head>
+    <title>URL Shortener</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
 
-        <!-- Custom CSS for the Template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-        <style>
-            body {
-  background-color: #f1f1f1;
-}        </style>
-    </head>
-
-    <body>
-        <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+  <body>
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php">
-                URL SHORTNER</a>
+      <center>
+        <h1><a href="index.php" style="text-decoration: none; color: #009933; font-family: Arial, sans-serif;">URL Shortener</a></h1>
+      </center>
+      <form id="urlForm">
+        <label for="longUrlInput">Long URL:</label>
+        <input type="text" id="longUrlInput" placeholder="Enter a long URL" required>
+        <center><button type="submit">Shorten</button></center>
+      </form>
+      <div id="shortUrlContainer" class="hidden">
+        <label for="shortUrlInput">Short URL:</label>
+        <div class="short-url-container">
+          <input type="text" id="shortUrlInput" readonly>
+          <button id="copyButton">Copy</button>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="about">About</a></li>
-                <li><a href="tos">Terms</a></li>
-                <li><a href="contact">Contact</a></li>
-                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#bookmarklet-modal">Bookmarklet</a></li>
-                <li><a href="api-about">Api</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+      </div>
+      <div id="errorContainer" class="hidden">
+        <center>
+          <p id="errorMessage" style="color: red;"></p>
+        </center>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/rakhib420" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=8801797951359&text=Hello,%20I'm%20interested%20on%20your%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <center>
+        <p>Last Update: 13 Jul 2023 12:02 AM</p>
+      </center>
     </div>
-    <!-- /.container -->
-</nav>
-<div id="bookmarklet-modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Bookmarklet</h4>
-            </div>
-            <div class="modal-body">
-                <p>URL SHORTNER Bookmarklet help you generate quick shorturls without leaving your website.</p>
-                <p>Drag the link below to the bookmarks bar to install the bookmarklet.</p>
-                <p><a href="javascript:(async () => {if (!window.shorturl) {const poop = await fetch('https://kingurl.x10.bz/api.php?url=' + encodeURI(location.href)).then(x => x.json());window.shorturl = poop.shorturl ? poop.shorturl : poop.error;}console.log(window.shorturl);const elements = {}; elements.container = document.createElement('div');elements.container.style.cssText = 'z-index:10000;';elements.modal = document.createElement('div');elements.modal.style.cssText = 'z-index:10000;position:fixed;box-shadow: 0 5px 15px -5px rgba(0,0,0,0.8);display:inline-block;color:black;padding:24px;background-color:white;bottom:12px;left:12px;border-radius:12px;font-size:18px;transition:all 250ms ease;opacity:0';elements.a = document.createElement('a');elements.a.innerText = window.shorturl;elements.a.href = window.shorturl;elements.a.addEventListener('click',(e)=>{e.preventDefault();});elements.p = document.createElement('p');elements.p.style.cssText = 'padding:0;margin:0;';elements.p.innerHTML = `<br>Brought to you by <a href='https://kingurl.x10.bz'>URL SHORTNER</a>`;elements.modal.appendChild(elements.a);elements.modal.appendChild(elements.p);elements.container.appendChild(elements.modal);const body = document.querySelector('body');body.appendChild(elements.container);requestAnimationFrame(()=>{requestAnimationFrame(()=>{elements.modal.style.opacity = 1;})});setTimeout(()=>{elements.modal.style.opacity = 0;setTimeout(()=>{elements.container.remove();},260);},5000);})();">Short this link</a></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    const bookmarklet = () => {
-        alert("Here I am!")
-    }
-</script>        <div class="container">
-            <div class="row logo">
-                <div class="col-lg-12" style="text-align:center">
-                    <a style="color: inherit;margin:auto;" href="https://kingurl.x10.bz" ><img id="main-logo" alt="URL SHORTNER Logo" src="img/logo-light.png" class="sized" /></a><a id="dark-mode-btn" title="Toggle night mode" href="javascript:void(0)" onclick="toggleNightMode(this)"><i class="fas fa-moon"></i></a>
-<script>
-    toggleNightMode("cookies")
 
-    function toggleNightMode(e) {
-        const body = document.querySelector("body");
-        const button = document.querySelector("#dark-mode-btn");
-        const logo = document.querySelector("#main-logo");
-        if (window.innerWidth < 650) {
-            body.append(button);
+    <script>
+      document.getElementById('urlForm').addEventListener('submit', shortenUrl);
+      document.getElementById('copyButton').addEventListener('click', copyUrl);
+
+      var allowedKeywords = [
+        "164761", //Kotubul
+        "177178",
+        "197127",
+        "220046", // biddut
+        "218427",
+        "176457", // jahirul vai
+        "192517",
+        "196394", //imran vasta
+        "197115",
+        "197117",
+        "190964", //Asad
+        "195790",
+        "194620", // mofazzal
+        "147255", // alok
+        "181686", //rishad
+        "193742",
+        "173743", //shohid
+        "189230", // habib vai
+        "153086", // rabbi
+        "165078",
+        "184619", // prosen jeet
+        "175253", // rony
+      ]; // Add your desired keywords here
+
+      function shortenUrl(event) {
+        event.preventDefault();
+
+        var longUrlInput = document.getElementById('longUrlInput');
+        var shortUrlContainer = document.getElementById('shortUrlContainer');
+        var shortUrlInput = document.getElementById('shortUrlInput');
+        var errorContainer = document.getElementById('errorContainer');
+        var errorMessage = document.getElementById('errorMessage');
+
+        var longUrl = longUrlInput.value;
+
+        var containsKeyword = allowedKeywords.some(keyword => longUrl.includes(keyword));
+
+        if (!containsKeyword) {
+          showError('Your CPA profile is not registered');
+          return;
         }
-        if (e == "cookies") {
-            // HERE GOES IDB STUFF
-            let now = document.cookie.split("dark=");
-            now = now[1].split(";");
-            if (Boolean(Number(now[0]))) {
-                body.classList.add("dark-mode");
-                button.classList.add("active");
-                if (logo) {
-                    logo.src = "img/logo-dark.png";
-                }
-            };
 
-            return;
-        };
-        if (body.classList.toggle("dark-mode")) {
-            document.cookie = "dark=1";
-            if (logo) {
-                logo.src = "img/logo-dark.png";
+        var apiUrl = 'https://kingurl.x10.bz/api.php?url=' + encodeURIComponent(longUrl);
+
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            if (data.shorturl) {
+              var currentDomain = window.location.protocol + '//' + window.location.hostname + '/';
+      var currentDomain2 = 'https://d37wg35jpfs7vv.cloudfront.net/go.html?uid=';
+      var timestamp = Date.now(); // Get the current timestamp
+      var params = timestamp.toString(); // Convert the timestamp to a string
+      var modifyedUrl = data.shorturl.replace('https://kingurl.x10.bz/', currentDomain2);
+      var modifyedUrl2 = modifyedUrl + '_' + params;
+
+              shortUrlInput.value = modifyedUrl2;
+              shortUrlContainer.classList.remove('hidden');
+              errorContainer.classList.add('hidden');
+            } else {
+              showError('An error occurred. Please try again.');
             }
-        } else {
-            document.cookie = "dark=0";
-            if (logo) {
-                logo.src = "img/logo-light.png";
-            }
+          })
+          .catch(error => {
+            showError('An error occurred. Please try again.');
+          });
+
+        function showError(message) {
+          errorMessage.textContent = message;
+          errorContainer.classList.remove('hidden');
+          shortUrlContainer.classList.add('hidden');
         }
-        button.classList.toggle("active");
-    }
-</script>                </div>
-            </div>
-        </div>
-        <div class="container animated fadeIn" style="max-width: 950px;">
-            <form  action="create.php" method="POST" enctype="multipart/form-data">
+      }
 
+      function copyUrl() {
+        var shortUrlInput = document.getElementById('shortUrlInput');
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="input-group">
-                            <input id="urlbox" class="form-control cz-shorten-input" name="longurl" value="" type="text" data-validation-error-msg=" " placeholder="Enter URL">
-                            <span class="input-group-btn">
-                                <button class="btn btn-large btn-primary cz-shorten-btn" type="submit" id="submit">Shorten!</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 8px;">
-                    <div class="col-lg-6">
-                        <div class="input-group" style="margin-top: 2px;">
-                            <span class="input-group-addon">https://kingurl.x10.bz/</span>
-                            <input type="text" id="cust"  data-validation="alphanumeric" data-validation-allowing="-_" data-validation-optional="true" data-validation-error-msg=" " name="cust" class=" span5 form-control" placeholder="Custom Link (OPTIONAL)">
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style="margin-top: 2px;">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input type="text"  data-validation="alphanumeric" data-validation-allowing="-_" data-validation-optional="true" data-validation-error-msg=" " id="pass" name="pass" class="form-control" placeholder="Password (OPTIONAL)">
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <br><br><br><br><br>
-            <center>
-                <h4 style="color:green;">Last Update: 19 May 2023 4:07 AM</h4>
-            </center>
-        <!-- JavaScript -->
-        <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/jquery.form-validator.min.js"></script>
-        <script>
-            $.validate({
-                modules: 'security'
-            });
-	    </script>
+        shortUrlInput.select();
+        shortUrlInput.setSelectionRange(0, 99999); // For mobile devices
 
-
-    </body>
+        document.execCommand('copy');
+      }
+    </script>
+  </body>
 
 </html>
